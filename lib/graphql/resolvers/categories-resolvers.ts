@@ -171,10 +171,7 @@ export const categoryResolvers: Resolvers<GraphQLContext> = {
   Query: {
     categories: async (_, args: QueryCategoriesArgs, context): Promise<CategoryList> => {
       try {
-        // REMOVED authentication check - categories are public
-        // if (!context.userId) {
-        //   throw new GraphQLError("Not authenticated");
-        // }
+       
 
         const { pagination, onlyActive } = args;
         
@@ -247,10 +244,7 @@ export const categoryResolvers: Resolvers<GraphQLContext> = {
 
     category: async (_, args: QueryCategoryArgs, context): Promise<CategoryType | null> => {
       try {
-        // REMOVED authentication check - categories are public
-        // if (!context.userId) {
-        //   throw new GraphQLError("Not authenticated");
-        // }
+        
 
         const category = await Category.findById(args.id)
           .select('_id name slug description image productCount isActive createdAt updatedAt parent')
@@ -294,11 +288,7 @@ export const categoryResolvers: Resolvers<GraphQLContext> = {
 
     activeCategories: async (_, __, context): Promise<CategoryType[]> => {
       try {
-        // REMOVED authentication check - categories are public
-        // if (!context.userId) {
-        //   throw new GraphQLError("Not authenticated");
-        // }
-
+        
         const categories = await Category.find({ isActive: true })
           .select('_id name slug description image productCount isActive createdAt updatedAt parent')
           .sort({ name: 1 })
@@ -335,7 +325,6 @@ export const categoryResolvers: Resolvers<GraphQLContext> = {
   Mutation: {
     createCategory: async (_, args: MutationCreateCategoryArgs, context): Promise<CategoryType> => {
       try {
-        // KEEP authentication for mutations - admin only
         if (!context.userId) {
           throw new GraphQLError("Not authenticated");
         }
@@ -418,7 +407,6 @@ export const categoryResolvers: Resolvers<GraphQLContext> = {
 
     updateCategory: async (_, args: MutationUpdateCategoryArgs, context): Promise<CategoryType> => {
       try {
-        // KEEP authentication for mutations - admin only
         if (!context.userId) {
           throw new GraphQLError("Not authenticated");
         }
@@ -535,7 +523,6 @@ export const categoryResolvers: Resolvers<GraphQLContext> = {
 
     deleteCategory: async (_, args: MutationDeleteCategoryArgs, context): Promise<boolean> => {
       try {
-        // KEEP authentication for mutations - admin only
         if (!context.userId) {
           throw new GraphQLError("Not authenticated");
         }
@@ -577,7 +564,6 @@ export const categoryResolvers: Resolvers<GraphQLContext> = {
 
     toggleCategoryStatus: async (_, args: MutationToggleCategoryStatusArgs, context): Promise<CategoryType> => {
       try {
-        // KEEP authentication for mutations - admin only
         if (!context.userId) {
           throw new GraphQLError("Not authenticated");
         }

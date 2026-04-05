@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 import { ORDER_DETAILS_FIELDS } from '../fragments/order-fragments';
-import { ORDER_CARD_FIELDS } from '../fragments/order-fragments'; // ✅ import the fragment
+import { ORDER_CARD_FIELDS } from '../fragments/order-fragments'; 
 
 
 export const GET_ORDER = gql`

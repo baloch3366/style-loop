@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import {
   GetCategoriesDocument,
-  GetCategoriesQuery,  // ✅ import the query type
+  GetCategoriesQuery,  
   CategoryCardFieldsFragment,
 } from '@/lib/graphql/generated/graphql';
 
@@ -20,7 +20,6 @@ export default function CategoriesList({
   onSelectCategory,
   selectedCategory,
 }: CategoriesListProps) {
-  // ✅ add the generic type to useQuery
   const { data, loading, error } = useQuery<GetCategoriesQuery>(GetCategoriesDocument, {
     variables: {
       pagination: { page: 1, limit: 50 },
@@ -30,7 +29,6 @@ export default function CategoriesList({
 
   const [expandedCategories, setExpandedCategories] = useState<string[]>([]);
 
-  // ✅ now TypeScript knows data.categories exists
   const categories = (data?.categories?.items as CategoryCardFieldsFragment[]) || [];
 
   const toggleCategory = (categoryId: string) => {

@@ -1,4 +1,3 @@
-// lib/graphql/server.ts
 import { ApolloServer } from '@apollo/server';
 import { startServerAndCreateNextHandler } from '@as-integrations/next';
 import { typeDefs } from '@/lib/graphql/schema';
@@ -17,7 +16,6 @@ const handler = startServerAndCreateNextHandler(apolloServer, {
   context: createGraphQLContext,
 });
 
-// Export handlers with CORS support
 export async function GET(request: NextRequest) {
   const response = await handler(request);
   

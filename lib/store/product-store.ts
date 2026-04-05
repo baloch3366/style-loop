@@ -5,8 +5,8 @@ interface ProductStore {
   isCreateModalOpen: boolean;
   isEditModalOpen: boolean;
   isDeleteModalOpen: boolean;
-  selectedProduct: ProductCardFieldsFragment | null; // for delete, use card fields
-  selectedProductDetails: ProductDetailsFieldsFragment | null; // for edit, use full details
+  selectedProduct: ProductCardFieldsFragment | null; 
+  selectedProductDetails: ProductDetailsFieldsFragment | null; 
   setCreateModalOpen: (open: boolean) => void;
   setEditModalOpen: (open: boolean) => void;
   setDeleteModalOpen: (open: boolean) => void;

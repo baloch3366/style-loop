@@ -9,8 +9,8 @@ import ProductCard from './product-card';
 import ProductFilters, { ProductFilterState } from './products-filter';
 import {
   GetProductsDocument,
-  GetProductsQuery,          // ✅ import the query type
-  ProductCardFieldsFragment, // ✅ import fragment type for product
+  GetProductsQuery,         
+  ProductCardFieldsFragment, 
 } from '@/lib/graphql/generated/graphql';
 
 interface ProductListProps {
@@ -56,7 +56,6 @@ export default function ProductList({ selectedCategory, onCategoryChange }: Prod
     return queryFilters;
   };
 
-  // ✅ Add the generic type to useQuery
   const { data, loading, error, refetch } = useQuery<GetProductsQuery>(GetProductsDocument, {
     variables: {
       filters: buildQueryFilters(),

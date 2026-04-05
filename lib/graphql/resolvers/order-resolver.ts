@@ -12,7 +12,6 @@ type OrderDoc = {
   createdAt?: Date;
   userId?: string;
   guestEmail?: string;
-  // add any other fields you need in resolvers
 };
 
 export const orderResolvers = {
@@ -43,7 +42,7 @@ export const orderResolvers = {
         ];
       }
       if (filters?.status) {
-        query.status = filters.status; // already uppercase from frontend
+        query.status = filters.status; 
       }
 
       const itemsRaw = (await Order.find(query)
@@ -70,7 +69,6 @@ export const orderResolvers = {
       };
     },
 
-    // Inside the Query object in orderResolvers
     userOrders: async (_: any, { pagination }: any, context: GraphQLContext) => {
       if (!context.userId) throw new Error('Not authenticated');
       const page = pagination?.page || 1;

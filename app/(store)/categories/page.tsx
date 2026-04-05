@@ -7,12 +7,11 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import {
   GetActiveCategoriesDocument,
-  GetActiveCategoriesQuery,  // ✅ import the query type
+  GetActiveCategoriesQuery,  
 } from '@/lib/graphql/generated/graphql';
 import type { CategoryCardFieldsFragment } from '@/lib/graphql/generated/graphql';
 
 export default function CategoriesPage() {
-  // ✅ add the generic type to useQuery
   const { data, loading, error } = useQuery<GetActiveCategoriesQuery>(GetActiveCategoriesDocument);
 
   if (loading) {

@@ -1,4 +1,3 @@
-// lib/hooks/useAuthProducts.ts
 import { useSession } from 'next-auth/react';
 import { useQuery, useMutation } from '@apollo/client/react';
 import {

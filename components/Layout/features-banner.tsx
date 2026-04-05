@@ -1,4 +1,3 @@
-// app/components/common/features-banner.tsx
 import { Truck, CreditCard, Shield, Phone } from 'lucide-react';
 
 const features = [

@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Package, Edit, Trash2, Star, Grid, List, ArrowRight, Eye } from 'lucide-react';
 
-// Define the expected product shape (matches your dashboard stats query)
 export interface RecentProduct {
   id: string;
   name: string;

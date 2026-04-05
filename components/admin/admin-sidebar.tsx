@@ -1,4 +1,3 @@
-// components/admin/AdminSidebar.tsx
 'use client';
 
 import { useState } from 'react';
@@ -19,7 +18,6 @@ import {
 } from 'lucide-react';
 import { signOut } from 'next-auth/react';
 
-// Update your AdminSidebar component navigation array
 const navigation = [
   { name: 'Dashboard', href: '/admin', icon: Home },
   { name: 'Products', href: '/admin/products', icon: Package },

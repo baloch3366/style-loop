@@ -1,8 +1,6 @@
 
-// lib/seed-data.ts - FINAL CORRECTED VERSION (NO DUPLICATE IDs)
 import { Types } from 'mongoose';
 
-// Generate fixed ObjectIds for consistent seeding
 const ids = {
   // Users
   adminId: new Types.ObjectId('507f1f77bcf86cd799439011'),
@@ -19,7 +17,6 @@ const ids = {
   foodId: new Types.ObjectId('507f1f77bcf86cd799439028'),
 };
 
-// USERS DATA (unchanged)
 export const userSeeds = [
   {
     _id: ids.adminId,
@@ -49,7 +46,6 @@ export const userSeeds = [
   },
 ];
 
-// CATEGORIES DATA (unchanged)
 export const categorySeeds = [
   {
     _id: ids.electronicsId,
@@ -149,9 +145,8 @@ export const categorySeeds = [
   },
 ];
 
-// PRODUCTS DATA - UNIQUE IDs FOR EVERY PRODUCT
 export const productSeeds = [
-  // ---------- ELECTRONICS (5 products) ----------
+  // ---------- ELECTRONICS  ----------
   {
     _id: new Types.ObjectId('507f1f77bcf86cd799439031'),
     name: 'Wireless Bluetooth Headphones',
@@ -358,9 +353,9 @@ export const productSeeds = [
     updatedAt: new Date(),
   },
 
-  // ---------- HOME & KITCHEN (3 items – unique dynamic IDs) ----------
+  // ---------- HOME & KITCHEN  ----------
   {
-    _id: new Types.ObjectId(), // unique ID
+    _id: new Types.ObjectId(), 
     name: 'Modern Wooden Chair',
     description: 'Ergonomic wooden chair for home and office.',
     shortDescription: 'Wooden chair',
@@ -380,7 +375,7 @@ export const productSeeds = [
     updatedAt: new Date(),
   },
   {
-    _id: new Types.ObjectId(), // unique ID
+    _id: new Types.ObjectId(),
     name: 'Coffee Maker Machine',
     description: 'Brew perfect coffee every morning.',
     shortDescription: 'Coffee maker',
@@ -401,7 +396,7 @@ export const productSeeds = [
   },
 
 
-  // ---------- BOOKS (3 items – unique dynamic IDs) ----------
+  // ---------- BOOKS  ----------
   {
     _id: new Types.ObjectId(),
     name: 'Atomic Habits',
@@ -463,7 +458,7 @@ export const productSeeds = [
     updatedAt: new Date(),
   },
 
-  // ---------- SPORTS (3 items – unique dynamic IDs) ----------
+  // ---------- SPORTS  ----------
   {
     _id: new Types.ObjectId(),
     name: 'Professional Football',

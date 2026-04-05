@@ -1,4 +1,3 @@
-// app/admin/layout.tsx
 'use client';
 
 import { redirect } from 'next/navigation';

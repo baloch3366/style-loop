@@ -1,4 +1,3 @@
-// lib/utils/logger.ts - Simple console logger
 type LogLevel = 'error' | 'warn' | 'info' | 'debug';
 
 const logLevels: Record<LogLevel, number> = {

@@ -44,7 +44,7 @@ import { TooltipProvider } from '@radix-ui/react-tooltip';
 import { GET_ADMIN_PRODUCTS } from '@/lib/graphql/queries/products';
 import { 
   AdminProductCardFieldsFragment,
-  GetAdminProductsQuery   // ✅ import the query type
+  GetAdminProductsQuery   
 } from '@/lib/graphql/generated/graphql';
 
 interface AdminProductTableProps {
@@ -63,7 +63,6 @@ export default function AdminProductTable({
   const [selectedProducts, setSelectedProducts] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   
-  // ✅ Add the generic type to useQuery
   const { data, loading, error, refetch } = useQuery<GetAdminProductsQuery>(GET_ADMIN_PRODUCTS, {
     variables: {
       filters,

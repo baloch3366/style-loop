@@ -1,4 +1,3 @@
-// lib/models/user-model.ts - COMPLETE VERSION WITH RESET TOKENS
 import { Schema, model, models } from "mongoose";
 import bcrypt from "bcryptjs";
 
@@ -52,7 +51,6 @@ const userSchema = new Schema(
       type: Date,
       default: null,
     },
-    // ✅ NEW: Password reset fields
     resetPasswordToken: {
       type: String,
       default: null,
@@ -67,12 +65,10 @@ const userSchema = new Schema(
   }
 );
 
-// Virtual id field
 userSchema.virtual('id').get(function() {
   return this._id.toString();
 });
 
-// Transform for JSON output
 userSchema.set('toJSON', {
   virtuals: true,
   transform: (doc: any, ret: any) => {
@@ -83,7 +79,6 @@ userSchema.set('toJSON', {
     delete ret.passwordChangedAt;
     delete ret.failedLoginAttempts;
     delete ret.accountLockedUntil;
-    // ✅ Exclude reset token fields from output
     delete ret.resetPasswordToken;
     delete ret.resetPasswordExpires;
     
@@ -93,8 +88,7 @@ userSchema.set('toJSON', {
   }
 });
 
-// Password hashing middleware
-userSchema.pre('save', async function(next) {
+ userSchema.pre('save', async function(next) {
   if (!this.isModified('password')) return next();
   
   try {
@@ -155,11 +149,9 @@ userSchema.methods.resetFailedLoginAttempts = async function(): Promise<void> {
   await this.save();
 };
 
-// Indexes (optional: add index on reset token for faster lookups)
 userSchema.index({ resetPasswordToken: 1 }, { sparse: true });
 userSchema.index({ resetPasswordExpires: 1 });
 
-// TypeScript interface
 export interface IUser {
   id: string;
   name: string;

@@ -1,5 +1,4 @@
 
-// lib/auth.ts - SIMPLIFIED VERSION
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import Google from "next-auth/providers/google";
@@ -43,7 +42,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           
           if (!user) throw new Error("Invalid email or password");
           
-          // Your authorize logic...
           return {
             id: user._id.toString(),
             email: user.email,

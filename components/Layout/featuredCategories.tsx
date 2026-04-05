@@ -1,4 +1,3 @@
-// components/featuredCategories.tsx
 'use client';
 
 import { useQuery } from '@apollo/client/react';

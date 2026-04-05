@@ -10,7 +10,7 @@ export type ToastProps = {
 }
 
 const TOAST_LIMIT = 5
-const TOAST_REMOVE_DELAY = 5000 // 5 seconds
+const TOAST_REMOVE_DELAY = 5000 
 
 type ActionType = {
   type: "ADD_TOAST" | "UPDATE_TOAST" | "DISMISS_TOAST" | "REMOVE_TOAST"

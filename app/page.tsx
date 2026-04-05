@@ -1,4 +1,3 @@
-// app/page.tsx - FULLY TYPED AND CORRECTED
 'use client';
 
 import { useQuery } from '@apollo/client/react';
@@ -37,7 +36,6 @@ export default function HomePage() {
     }
   );
 
-  // ✅ typed query for active categories
   const { data: categoriesData, loading: categoriesLoading } = useQuery<GetActiveCategoriesQuery>(
     GetActiveCategoriesDocument,
     {
@@ -45,13 +43,11 @@ export default function HomePage() {
     }
   );
 
-  // ✅ typed query for best sellers
   const { data: bestSellersData, loading: bestSellersLoading } = useQuery<GetBestSellingProductsQuery>(
     GetBestSellingProductsDocument,
     { variables: { limit: 4 }, skip: status === 'loading' }
   );
 
-  // ✅ typed query for new arrivals
   const { data: newArrivalsData, loading: newArrivalsLoading } = useQuery<GetNewArrivalsQuery>(
     GetNewArrivalsDocument,
     { variables: { limit: 4 }, skip: status === 'loading' }

@@ -108,7 +108,6 @@ export const useCartStore = create<CartStore>()(
           return { items: [...state.items, newItem] };
         });
 
-        // Send mutation if user is logged in
         const session = get()._getSession?.();
         const client = get()._apolloClient;
         if (session?.user && client) {
@@ -192,7 +191,6 @@ export const useCartStore = create<CartStore>()(
     }),
     {
       name: 'cart-storage',
-      // ✅ Only persist items and hydration flag – exclude Apollo client and session getter
       partialize: (state) => ({
         items: state.items,
         isHydrated: state.isHydrated,

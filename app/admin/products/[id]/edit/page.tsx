@@ -32,18 +32,16 @@ import { useToast } from '@/hooks/use-toast';
 import Link from 'next/link';
 import Image from 'next/image';
 
-// ✅ GraphQL imports – from generated types, using fragments
 import { 
   UpdateProductDocument,
-  GetCategoriesForFilterDocument,      // 👈 lightweight fragment
+  GetCategoriesForFilterDocument,      
   GetProductDocument, 
-  GetProductQuery,                // 👈 uses PRODUCT_DETAILS_FRAGMENT
+  GetProductQuery,                
   CategoryFilterFieldsFragment,
   ProductDetailsFieldsFragment,
   GetCategoriesForFilterQuery
 } from '@/lib/graphql/generated/graphql';
 
-// Zod imports
 import {
   ProductUpdateInput,
   validateProductUpdate,
@@ -60,7 +58,6 @@ export default function EditProductPage() {
   
   const [updateProduct, { loading: updating }] = useMutation(UpdateProductDocument);
   
-  // ✅ Use lightweight fragment query for categories (only id, name, isActive)
   const { data: productData, loading: productLoading, error: productError } = useQuery<GetProductQuery>(
   GetProductDocument,
   {
@@ -70,7 +67,6 @@ export default function EditProductPage() {
 );
 
   
-  // ✅ GetProductDocument already uses PRODUCT_DETAILS_FRAGMENT
  const { data: categoriesData, loading: categoriesLoading } = useQuery<GetCategoriesForFilterQuery>(
   GetCategoriesForFilterDocument,
   {

@@ -1,4 +1,3 @@
-// lib/models/products-model.ts - CLEAN VERSION
 import { Schema, model, models } from "mongoose";
 
 const productSchema = new Schema(
@@ -108,7 +107,6 @@ productSchema.index({ totalSold: -1 });
 productSchema.index({ createdAt: -1 });  
 
 
-// Add this to your productSchema indexes
 productSchema.index({ 
   name: 'text', 
   description: 'text', 
@@ -131,6 +129,5 @@ productSchema.pre('save', function(next) {
   next();
 });
 
-// Export the model
 const Product = models.Product || model("Product", productSchema);
 export default Product;

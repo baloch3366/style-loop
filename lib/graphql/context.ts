@@ -9,7 +9,6 @@ export interface GraphQLContext {
   req: NextRequest;
 }
 
-// Optional: Helper function to create context
 export async function createGraphQLContext(request: NextRequest): Promise<GraphQLContext> {
   try {
     const { getToken } = await import("next-auth/jwt");

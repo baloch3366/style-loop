@@ -9,7 +9,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const { data: session } = useSession();
   const client = useApolloClient();
 
-  // Inject Apollo client and session getter into the store
   useEffect(() => {
     useCartStore.setState({
       _apolloClient: client,

@@ -9,7 +9,6 @@ import { AlertCircle, ArrowLeft, Check, Loader2, Package, Trash2, X, AlertTriang
 import { useToast } from '@/hooks/use-toast';
 import Link from 'next/link';
 
-// ✅ GraphQL imports – from generated types, using fragments
 import { 
   DeleteProductDocument,
   GetProductDocument,GetProductQuery,
@@ -25,7 +24,6 @@ export default function DeleteProductPage() {
   
   const [deleteProduct, { loading: deleting, error: deleteError }] = useMutation(DeleteProductDocument);
   
-  // ✅ GetProductDocument uses PRODUCT_DETAILS_FRAGMENT
   const { data: productData, loading: productLoading, error: productError } = useQuery<GetProductQuery>(
     GetProductDocument,
     {

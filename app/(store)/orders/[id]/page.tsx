@@ -8,7 +8,7 @@ import { Loader2, Package } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import type { GetOrderQuery } from '@/lib/graphql/generated/graphql'; // adjust path if needed
+import type { GetOrderQuery } from '@/lib/graphql/generated/graphql'; 
 
 export default function OrderDetailPage() {
   const params = useParams();

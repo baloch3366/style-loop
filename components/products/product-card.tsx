@@ -25,7 +25,6 @@ export default function ProductCard({
   const { toast } = useToast();
   const { addItem, isInCart, getItemQuantity } = useCartStore();
 
-  // ✅ Fixed: proper fallback to a placeholder string
   const imageUrl = 
     product.images?.main || 
     product.images?.thumbnail || 

@@ -40,7 +40,7 @@ import {
   GetCategoriesDocument,
   DeleteCategoryDocument,
   ToggleCategoryStatusDocument,
-  GetCategoriesQuery,           // ✅ import the generated query type
+  GetCategoriesQuery,          
 } from '@/lib/graphql/generated/graphql';
 import type { CategoryCardFieldsFragment } from '@/lib/graphql/generated/graphql';
 

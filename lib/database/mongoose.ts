@@ -1,4 +1,3 @@
-// /lib/database/mongoose.ts 
 import mongoose from 'mongoose';
 
 if (!process.env.MONGODB_URI) {
@@ -43,5 +42,4 @@ export async function connectToDatabase() {
   return cached.conn;
 }
 
-// For NextAuth compatibility, export a clientPromise
 export const clientPromise = connectToDatabase().then(() => mongoose.connection.getClient());

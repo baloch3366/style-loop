@@ -1,4 +1,3 @@
-// components/admin/product-edit-modal.tsx
 'use client';
 
 import { useState } from 'react';

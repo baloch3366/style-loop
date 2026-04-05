@@ -10,10 +10,10 @@ import ProductCard from '@/components/products/product-card';
 import {
   GetActiveCategoriesDocument,
   GetProductsDocument,
-  GetActiveCategoriesQuery,   // ✅ import query type for categories
-  GetProductsQuery,          // ✅ import query type for products
+  GetActiveCategoriesQuery,   
+  GetProductsQuery,         
   CategoryCardFieldsFragment,
-  ProductCardFieldsFragment, // ✅ import fragment type for products
+  ProductCardFieldsFragment, 
 } from '@/lib/graphql/generated/graphql';
 
 export default function CategoryPage() {

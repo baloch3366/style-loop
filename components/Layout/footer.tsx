@@ -1,4 +1,3 @@
-// app/components/layout/footer.tsx
 import Link from 'next/link';
 import { Store, CreditCard, ShieldCheck, Truck, Phone } from 'lucide-react';
 

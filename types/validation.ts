@@ -1,7 +1,6 @@
 
 import { z } from "zod";
 
-// Import GraphQL generated types
 import type { 
   ProductStatus as GraphQLProductStatus,
   ProductImagesInput,

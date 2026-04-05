@@ -7,10 +7,9 @@ import { CheckCircle, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { GET_ORDER } from '@/lib/graphql/queries/order'; // ✅ use the single order query
+import { GET_ORDER } from '@/lib/graphql/queries/order'; 
 import { useToast } from '@/hooks/use-toast';
 
-// ✅ Use the generated types (after running codegen)
 import type { GetOrderQuery, GetOrderQueryVariables } from '@/lib/graphql/generated/graphql';
 
 export default function OrderConfirmationPage() {
@@ -40,7 +39,7 @@ export default function OrderConfirmationPage() {
   const { data, loading, error } = useQuery<GetOrderQuery, GetOrderQueryVariables>(
     GET_ORDER,
     {
-      variables: { id: orderId! }, // safe because skip ensures orderId is truthy
+      variables: { id: orderId! },
       skip: verifying || !orderId,
     }
   );

@@ -1,4 +1,3 @@
-// lib/graphql/resolvers/products-resolvers.ts - CLEANED VERSION
 import { GraphQLError } from 'graphql';
 import Product from '@/lib/models/products-model';
 import Category from '@/lib/models/categories-models';
@@ -263,7 +262,7 @@ newArrivals: async (_: any, args: { limit?: number }, context: GraphQLContext) =
     if (!context.isAdmin) query.status = 'ACTIVE';
 
     const products = await Product.find(query)
-      .sort({ createdAt: -1 })      // 👈 newest first
+      .sort({ createdAt: -1 })      //  newest first
       .limit(limit)
       .populate('category');
 

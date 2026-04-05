@@ -1,4 +1,4 @@
-import crypto from 'crypto'; // ✅ Added for randomBytes
+import crypto from 'crypto'; //  Added for randomBytes
 import { GraphQLError } from "graphql";
 import User from "@/lib/models/user-model";
 import Product from "@/lib/models/products-model";
@@ -54,7 +54,7 @@ const transformProductForDashboard = (product: any) => {
       gallery: product.images.gallery || []
     } : null,
     inventory: product.inventory || 0,
-    totalSold: product.totalSold || 0, // ✅ Added totalSold
+    totalSold: product.totalSold || 0, 
     tags: product.tags || null,
     featured: product.featured || false,
     status: product.status || 'DRAFT',
@@ -441,7 +441,7 @@ export const authResolvers: Resolvers<GraphQLContext> = {
         const user = await User.findOne({ email });
         if (!user) {
            console.log('⚠️ User not found, returning true (no email sent)');
-          return true; // Don't reveal email existence
+          return true; 
         }
 
         const token = crypto.randomBytes(32).toString('hex');

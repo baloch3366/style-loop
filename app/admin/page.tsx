@@ -1,4 +1,3 @@
-// app/admin/page.tsx
 'use client';
 
 import { useState } from 'react';
@@ -23,7 +22,6 @@ import ProductDeleteModal from '@/components/admin/product-deleteModel';
 import RecentProducts from '@/components/admin/recentProducts';
 import { GET_DASHBOARD_STATS } from '@/lib/graphql/queries/dashboard';
 
-// Define the shape of dashboard stats (must include images.main & thumbnail)
 interface DashboardStatsData {
   dashboardStats: {
     totalProducts: number;

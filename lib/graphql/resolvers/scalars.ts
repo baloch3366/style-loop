@@ -1,5 +1,4 @@
 
-// lib/graphql/scalars.ts
 import { GraphQLScalarType, Kind, ValueNode } from "graphql";
 import { z, ZodError } from "zod";
 

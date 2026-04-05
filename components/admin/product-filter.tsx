@@ -26,10 +26,9 @@ import {
   Clock,
 } from 'lucide-react';
 
-// ✅ Import generated types (including the query type)
 import { 
   GetCategoriesForAdminFilterDocument,
-  GetCategoriesForAdminFilterQuery,  // 👈 import the query type
+  GetCategoriesForAdminFilterQuery,  
   CategoryFilterFieldsFragment 
 } from '@/lib/graphql/generated/graphql';
 
@@ -61,7 +60,6 @@ export default function AdminProductFilters({
   showResultsCount = true,
   totalResults = 0
 }: AdminProductFiltersProps) {
-  // ✅ Add the generic type to useQuery
   const { data: categoriesData, loading: categoriesLoading } = useQuery<GetCategoriesForAdminFilterQuery>(
     GetCategoriesForAdminFilterDocument,
     {
@@ -74,10 +72,8 @@ export default function AdminProductFilters({
   const [localSearch, setLocalSearch] = useState(filters.search || '');
   const [showAdvanced, setShowAdvanced] = useState(false);
 
-  // ✅ Now TypeScript knows that categoriesData has a categories property
   const categories = (categoriesData?.categories?.items as CategoryFilterFieldsFragment[]) || [];
 
-  // Debounce search
   useEffect(() => {
     const timer = setTimeout(() => {
       if (localSearch !== filters.search) {

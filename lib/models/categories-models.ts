@@ -1,4 +1,3 @@
-// lib/models/categories-model.ts - FINAL CLEAN VERSION
 import { Schema, model, models } from "mongoose";
 
 const categorySchema = new Schema(
@@ -43,7 +42,7 @@ const categorySchema = new Schema(
   }
 );
 
-// Virtual id fielda
+// Virtual id field
 categorySchema.virtual('id').get(function() {
   return this._id.toString();
 });
@@ -85,15 +84,14 @@ categorySchema.pre('save', function(next) {
     const baseSlug = this.name
       .toLowerCase()
       .trim()
-      .replace(/[^\w\s-]/g, '') // Remove special chars
-      .replace(/\s+/g, '-')     // Replace spaces with hyphens
-      .replace(/-+/g, '-');     // Remove duplicate hyphens
+      .replace(/[^\w\s-]/g, '') 
+      .replace(/\s+/g, '-')     
+      .replace(/-+/g, '-');     
     
     this.slug = baseSlug;
   }
   next();
 });
 
-// Export the model
 const Category = models.Category || model("Category", categorySchema);
 export default Category;

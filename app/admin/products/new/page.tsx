@@ -28,11 +28,10 @@ import {
 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
-// ✅ IMPORT GENERATED DOCUMENTS – they use fragments internally
 import { 
   CreateProductDocument,
   GetCategoriesForFilterDocument,
-  GetCategoriesForFilterQuery,   // 👈 import the query type
+  GetCategoriesForFilterQuery,   
   CategoryFilterFieldsFragment
 } from '@/lib/graphql/generated/graphql';
 
@@ -52,7 +51,6 @@ export default function CreateProductPage() {
 
   const [createProduct, { loading }] = useMutation(CreateProductDocument);
 
-  // ✅ Add the generic type to useQuery
   const { data: categoriesData, loading: categoriesLoading } = useQuery<GetCategoriesForFilterQuery>(
     GetCategoriesForFilterDocument,
     {
