@@ -39,3 +39,20 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# added for GraphQL codegen
+/lib/graphql/generated/
+
+# added for seed data with Cloudinary URLs (if you generate a separate file)
+/lib/seed-data-cloudinary.ts
+
+# added for any compiled scripts
+/scripts/*.js
+/scripts/*.js.map
+
+# added for Windows thumbnail cache
+Thumbs.db
+
+# optional: IDE folders
+.vscode/
+.idea/

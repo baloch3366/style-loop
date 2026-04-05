@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+StyleLoop – Production‑Ready E‑commerce Platform
+A complete, full‑stack e‑commerce application built with Next.js (App Router), GraphQL (Apollo Server & Client), MongoDB (Mongoose), NextAuth, Stripe & PayPal, Cloudinary, Resend, and shadcn/ui.
+This platform includes a public storefront, a fully functional admin dashboard, product management, category management, user management, order tracking, revenue analytics, and secure payment processing.
 
-## Getting Started
+🚀 Live Demo 
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+📦 Tech Stack
+Layer	Technologies
+Frontend	Next.js 15 (App Router, Turbopack), React 18, Tailwind CSS, shadcn/ui
+Backend	Next.js API Routes, Apollo Server (GraphQL)
+Database	MongoDB, Mongoose ODM
+Auth	NextAuth.js (Credentials provider, JWT)
+Payments	Stripe (Checkout, Webhooks), PayPal (Buttons, Webhooks)
+File Upload	Cloudinary (image uploads with server‑side signature)
+Emails	Resend + React Email templates
+State	Zustand (client‑side cart), Apollo Client (cache)
+Validation	Zod + react‑hook‑form
+Analytics	Recharts (dashboard charts)
+Deployment	Vercel 
+✨ Features
+🛍️ Public Storefront
+Homepage with best‑selling and new arrivals (powered by totalSold & createdAt)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Product listing with category sidebar, search, price filters, sorting, grid/table toggle
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Product detail page with quantity selector and add‑to‑cart
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Shopping cart (Zustand + localStorage) – optional backend sync ready
 
-## Learn More
+Checkout flow: creates order → shows Stripe/PayPal buttons
 
-To learn more about Next.js, take a look at the following resources:
+Order confirmation page after payment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Full password reset flow (email via Resend)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+🔐 User Accounts
+Registration & login (NextAuth)
 
-## Deploy on Vercel
+User dashboard (orders, profile – partially implemented)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Role‑based access (Admin / User)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+🛠️ Admin Dashboard
+Products: list (table/grid), create, edit, delete, bulk actions
+
+Categories: CRUD, toggle active status
+
+Users: manage roles, activate/deactivate, delete
+
+Orders: list, update status
+
+Analytics & Revenue: charts for revenue trends and top products
+
+Store Settings: store name, address, tax, etc.
+
+💳 Payments & Checkout
+Order creation with status PENDING
+
+Stripe Checkout session creation via API route
+
+Webhooks for Stripe & PayPal to update order status to PAID and increment totalSold
+
+Secure signature verification for webhooks
+
+📸 Media Management
+Cloudinary integration for product images (main, thumbnail, gallery)
+
+Server‑side signature generation (/api/cloudinary/signature)
+
+Direct upload from admin panel with preview
+
+📧 Email
+Order confirmation emails (React Email templates)
+
+Password reset emails
+
+Powered by Resend
+
+🧪 Development & Tooling
+GraphQL Codegen (fragments, typed hooks)
+
+Seed scripts to populate database with realistic data
+
+Environment variables for all services
+
+Ready for production deployment on Vercel + MongoDB Atlas
