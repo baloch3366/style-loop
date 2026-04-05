@@ -1,5 +1,5 @@
 import StoreSettings from "@/lib/models/settings-model";
-import type { GraphQLContext } from "@/lib/graphql/context";
+import type { GraphQLContext } from "@/lib/context";
 
 export const settingsResolvers = {
   Query: {

@@ -18,7 +18,7 @@ import type {
   AuthResponse,
   DashboardStats,
 } from "@/lib/graphql/generated/resolvers-types";
-import type { GraphQLContext } from "@/lib/graphql/context";
+import type { GraphQLContext } from "@/lib/context";
 import { UserRole } from "@/lib/graphql/generated/resolvers-types";
 import bcrypt from "bcryptjs";
 import { sendResetPasswordEmail } from "@/lib/email";

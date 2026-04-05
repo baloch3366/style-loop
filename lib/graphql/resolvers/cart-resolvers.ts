@@ -1,6 +1,6 @@
 import Cart from '@/lib/models/cart-model';
 import Product from '@/lib/models/products-model';
-import type { GraphQLContext } from '@/lib/graphql/context';
+import type { GraphQLContext } from '@/lib/context';
 
 // Helper to transform a cart document to GraphQL type
 const transformCart = (cart: any) => ({

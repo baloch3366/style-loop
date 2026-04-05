@@ -1,7 +1,7 @@
 import Order from "@/lib/models/order-model";
 import Product from "@/lib/models/products-model";
 import User from "@/lib/models/user-model";
-import type { GraphQLContext } from '@/lib/graphql/context';
+import type { GraphQLContext } from '@/lib/context';
 
 // ✅ Strong type for lean() results
 type OrderDoc = {

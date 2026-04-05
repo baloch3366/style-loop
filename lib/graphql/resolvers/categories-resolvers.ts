@@ -20,7 +20,7 @@ import type {
   MutationDeleteCategoryArgs,
   MutationToggleCategoryStatusArgs
 } from "@/lib/graphql/generated/resolvers-types";
-import type { GraphQLContext } from "@/lib/graphql/context";
+import type { GraphQLContext } from "@/lib/context";
 import type { Types } from "mongoose";
 
 // Interface for lean category documents

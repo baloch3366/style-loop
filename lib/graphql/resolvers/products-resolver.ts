@@ -7,7 +7,7 @@ import {
   productFiltersSchema,
   paginationInputSchema,
 } from '@/types/validation';
-import type { GraphQLContext } from '@/lib/graphql/context';
+import type { GraphQLContext } from '@/lib/context';
 
 interface ProductType {
   __typename: 'Product';
