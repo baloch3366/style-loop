@@ -31,6 +31,7 @@ import {
 } from '@/lib/graphql/generated/graphql';
 import type { CategoryFilterFieldsFragment, GetCategoriesForFilterQuery } from '@/lib/graphql/generated/graphql';
 import CloudinaryUpload from '@/components/upload-cloudinary';
+import { toGraphQLProductInput } from '@/types/validation'; 
 
 const formSchema = z.object({
   name: z.string().min(1),
@@ -42,7 +43,6 @@ const formSchema = z.object({
   inventory: z.number().int().min(0),
   featured: z.boolean().default(false),
   status: z.enum(['ACTIVE', 'INACTIVE', 'DRAFT']).default('DRAFT'),
-  // Image fields – will store Cloudinary URLs
   mainImage: z.string().optional(),
   thumbnailImage: z.string().optional(),
   galleryImages: z.array(z.string()).default([]),
@@ -92,23 +92,25 @@ export default function ProductCreateModal({
   const onSubmit = async (values: FormValues) => {
     setIsSubmitting(true);
     try {
-      const input = {
+      // Transform form values to GraphQL ProductInput using the helper
+      const input = toGraphQLProductInput({
         name: values.name,
         description: values.description,
-        shortDescription: values.shortDescription || null,
+        shortDescription: values.shortDescription,
         price: values.price,
         category: values.category,
-        sku: values.sku || null,
+        sku: values.sku,
         inventory: values.inventory,
         featured: values.featured,
         status: values.status,
         images: {
-          main: values.mainImage || null,
-          thumbnail: values.thumbnailImage || null,
+          main: values.mainImage,
+          thumbnail: values.thumbnailImage,
           gallery: values.galleryImages,
         },
         tags: [],
-      };
+      });
+
       await createProduct({ variables: { input } });
       toast({ title: 'Success', description: 'Product created successfully' });
       onSuccess();
