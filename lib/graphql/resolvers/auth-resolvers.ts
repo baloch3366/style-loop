@@ -21,7 +21,7 @@ import type {
 import type { GraphQLContext } from "@/lib/context";
 import { UserRole } from "@/lib/graphql/generated/resolvers-types";
 import bcrypt from "bcryptjs";
-import { sendResetPasswordEmail } from "@/components/email/email";
+import { sendResetPasswordEmail } from "@/lib/email/email";
 
 // Helper function to transform product for dashboard
 const transformProductForDashboard = (product: any) => {
