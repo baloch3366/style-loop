@@ -18,12 +18,13 @@ const nextConfig: NextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   
-  // ADD THIS LINE - empty turbopack config
-  turbopack: {},
-  
-  // Keep your webpack config
   webpack: (config, { isServer }) => {
     if (!isServer) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        '@react-email/components': false,
+      };
+      
       config.resolve.fallback = {
         ...config.resolve.fallback,
         fs: false,
