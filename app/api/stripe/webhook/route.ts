@@ -4,7 +4,7 @@ import { connectToDatabase } from '@/lib/database/mongoose';
 import Order from '@/lib/models/order-model';
 import Product from '@/lib/models/products-model';
 import User from '@/lib/models/user-model';
-import { sendOrderConfirmationEmail } from '@/lib/email/email';
+import { sendOrderConfirmationEmail } from '@/lib/email/sendOrderConfirmationEmail';
 
 export async function POST(req: Request) {
   // console.log('🔥 Webhook received at:', new Date().toISOString());
