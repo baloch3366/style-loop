@@ -4,7 +4,7 @@ import {
   Head,
   Heading,
   Hr,
-  Html,
+  Html as EmailHtml,   
   Preview,
   Section,
   Text,
@@ -39,7 +39,7 @@ export const OrderConfirmationEmail = ({
   tax,
   total,
 }: OrderConfirmationEmailProps) => (
-  <Html>
+  <EmailHtml>
     <Head />
     <Preview>Your order #{orderNumber} has been confirmed</Preview>
     <Body style={main}>
@@ -114,7 +114,7 @@ export const OrderConfirmationEmail = ({
         </Section>
       </Container>
     </Body>
-  </Html>
+  </EmailHtml>
 );
 
 const main = {
