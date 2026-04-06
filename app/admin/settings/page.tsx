@@ -1,4 +1,5 @@
 'use client';
+ export const dynamic = 'force-dynamic';  
 
 import { useQuery, useMutation } from '@apollo/client/react';
 import { useForm, SubmitHandler } from 'react-hook-form';
