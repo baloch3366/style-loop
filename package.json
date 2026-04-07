@@ -6,7 +6,7 @@
     "dev": "next dev",
     "prebuild": "pnpm codegen",
     "dev:webpack": "next dev --no-turbo",
-    "dev:turbo": "next dev --turbo",
+    "dev:turbo": "set NODE_ENV=development &&next dev --turbo",
     "build": "next build --no-lint",
     "start": "next start",
     "lint": "next lint",
