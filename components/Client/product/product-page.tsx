@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -10,8 +11,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import CategoriesList from '@/components/products/categories-list';
-import ProductList from '@/components/products/product-list';
+import CategoriesList from '@/components/Client/category/categories-list';
+import ProductList from './product-list';
 
 export default function ProductsPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('');

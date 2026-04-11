@@ -1,247 +1,247 @@
-// import {
-//   Body,
-//   Container,
-//   Head,
-//   Heading,
-//   Hr,
-//   Html as EmailHtml,   
-//   Preview,
-//   Section,
-//   Text,
-//   Row,
-//   Column,
-//   Img,
-//   Link,
-// } from '@react-email/components';
-// import * as React from 'react';
+import {
+  Body,
+  Container,
+  Head as EmailHead,
+  Heading,
+  Hr,
+  Html as EmailHtml,   
+  Preview,
+  Section,
+  Text,
+  Row,
+  Column,
+  Img,
+  Link,
+} from '@react-email/components';
+import * as React from 'react';
 
-// interface OrderConfirmationEmailProps {
-//   customerName: string;
-//   orderNumber: string;
-//   items: Array<{
-//     name: string;
-//     price: number;
-//     quantity: number;
-//     image?: string;
-//   }>;
-//   subtotal: number;
-//   shipping: number;
-//   tax: number;
-//   total: number;
-// }
+interface OrderConfirmationEmailProps {
+  customerName: string;
+  orderNumber: string;
+  items: Array<{
+    name: string;
+    price: number;
+    quantity: number;
+    image?: string;
+  }>;
+  subtotal: number;
+  shipping: number;
+  tax: number;
+  total: number;
+}
 
-// export const OrderConfirmationEmail = ({
-//   customerName,
-//   orderNumber,
-//   items,
-//   subtotal,
-//   shipping,
-//   tax,
-//   total,
-// }: OrderConfirmationEmailProps) => (
-//   <EmailHtml>
-//     <Head />
-//     <Preview>Your order #{orderNumber} has been confirmed</Preview>
-//     <Body style={main}>
-//       <Container style={container}>
-//         <Section style={header}>
-//           <Img
-//             src="https://yourstore.com/logo.png" // replace with your logo
-//             width="150"
-//             height="auto"
-//             alt="Your Store"
-//             style={logo}
-//           />
-//         </Section>
+export const OrderConfirmationEmail = ({
+  customerName,
+  orderNumber,
+  items,
+  subtotal,
+  shipping,
+  tax,
+  total,
+}: OrderConfirmationEmailProps) => (
+  <EmailHtml>
+    <EmailHead />
+    <Preview>Your order #{orderNumber} has been confirmed</Preview>
+    <Body style={main}>
+      <Container style={container}>
+        <Section style={header}>
+          <Img
+            src="https://yourstore.com/logo.png" // replace with your logo
+            width="150"
+            height="auto"
+            alt="Your Store"
+            style={logo}
+          />
+        </Section>
 
-//         <Section style={content}>
-//           <Heading style={h1}>Thank You for Your Order!</Heading>
-//           <Text style={text}>Hello {customerName},</Text>
-//           <Text style={text}>
-//             Your order <strong>#{orderNumber}</strong> has been confirmed and is being processed.
-//           </Text>
+        <Section style={content}>
+          <Heading style={h1}>Thank You for Your Order!</Heading>
+          <Text style={text}>Hello {customerName},</Text>
+          <Text style={text}>
+            Your order <strong>#{orderNumber}</strong> has been confirmed and is being processed.
+          </Text>
 
-//           <Section style={orderDetails}>
-//             <Heading as="h2" style={h2}>Order Summary</Heading>
-//             {items.map((item, idx) => (
-//               <Row key={idx} style={itemRow}>
-//                 <Column>
-//                   <Text style={itemName}>{item.name} x {item.quantity}</Text>
-//                 </Column>
-//                 <Column align="right">
-//                   <Text style={itemPrice}>
-//                     ${(item.price * item.quantity).toFixed(2)}
-//                   </Text>
-//                 </Column>
-//               </Row>
-//             ))}
-//             <Hr style={hr} />
-//             <Row>
-//               <Column><Text style={totalLabel}>Subtotal</Text></Column>
-//               <Column align="right"><Text style={totalValue}>${subtotal.toFixed(2)}</Text></Column>
-//             </Row>
-//             <Row>
-//               <Column><Text style={totalLabel}>Shipping</Text></Column>
-//               <Column align="right"><Text style={totalValue}>${shipping.toFixed(2)}</Text></Column>
-//             </Row>
-//             <Row>
-//               <Column><Text style={totalLabel}>Tax</Text></Column>
-//               <Column align="right"><Text style={totalValue}>${tax.toFixed(2)}</Text></Column>
-//             </Row>
-//             <Row style={totalRow}>
-//               <Column><Text style={totalLabelBold}>Total</Text></Column>
-//               <Column align="right"><Text style={totalValueBold}>${total.toFixed(2)}</Text></Column>
-//             </Row>
-//           </Section>
+          <Section style={orderDetails}>
+            <Heading as="h2" style={h2}>Order Summary</Heading>
+            {items.map((item, idx) => (
+              <Row key={idx} style={itemRow}>
+                <Column>
+                  <Text style={itemName}>{item.name} x {item.quantity}</Text>
+                </Column>
+                <Column align="right">
+                  <Text style={itemPrice}>
+                    ${(item.price * item.quantity).toFixed(2)}
+                  </Text>
+                </Column>
+              </Row>
+            ))}
+            <Hr style={hr} />
+            <Row>
+              <Column><Text style={totalLabel}>Subtotal</Text></Column>
+              <Column align="right"><Text style={totalValue}>${subtotal.toFixed(2)}</Text></Column>
+            </Row>
+            <Row>
+              <Column><Text style={totalLabel}>Shipping</Text></Column>
+              <Column align="right"><Text style={totalValue}>${shipping.toFixed(2)}</Text></Column>
+            </Row>
+            <Row>
+              <Column><Text style={totalLabel}>Tax</Text></Column>
+              <Column align="right"><Text style={totalValue}>${tax.toFixed(2)}</Text></Column>
+            </Row>
+            <Row style={totalRow}>
+              <Column><Text style={totalLabelBold}>Total</Text></Column>
+              <Column align="right"><Text style={totalValueBold}>${total.toFixed(2)}</Text></Column>
+            </Row>
+          </Section>
 
-//           <Section style={footerNote}>
-//             <Text style={smallText}>
-//               You can track your order status by logging into your account.
-//             </Text>
-//             <Text style={smallText}>
-//               Need help? Contact us at{' '}
-//               <Link href="mailto:support@yourstore.com" style={link}>
-//                 support@yourstore.com
-//               </Link>
-//             </Text>
-//           </Section>
-//         </Section>
+          <Section style={footerNote}>
+            <Text style={smallText}>
+              You can track your order status by logging into your account.
+            </Text>
+            <Text style={smallText}>
+              Need help? Contact us at{' '}
+              <Link href="mailto:support@yourstore.com" style={link}>
+                support@yourstore.com
+              </Link>
+            </Text>
+          </Section>
+        </Section>
 
-//         <Section style={footer}>
-//           <Text style={footerText}>
-//             © {new Date().getFullYear()} Your Store. All rights reserved.
-//           </Text>
-//         </Section>
-//       </Container>
-//     </Body>
-//   </EmailHtml>
-// );
+        <Section style={footer}>
+          <Text style={footerText}>
+            © {new Date().getFullYear()} Your Store. All rights reserved.
+          </Text>
+        </Section>
+      </Container>
+    </Body>
+  </EmailHtml>
+);
 
-// const main = {
-//   backgroundColor: '#f6f9fc',
-//   fontFamily:
-//     '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif',
-// };
+const main = {
+  backgroundColor: '#f6f9fc',
+  fontFamily:
+    '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif',
+};
 
-// const container = {
-//   backgroundColor: '#ffffff',
-//   margin: '0 auto',
-//   padding: '20px 0 48px',
-//   marginBottom: '64px',
-// };
+const container = {
+  backgroundColor: '#ffffff',
+  margin: '0 auto',
+  padding: '20px 0 48px',
+  marginBottom: '64px',
+};
 
-// const header = {
-//   padding: '20px 20px 0',
-// };
+const header = {
+  padding: '20px 20px 0',
+};
 
-// const logo = {
-//   margin: '0 auto',
-// };
+const logo = {
+  margin: '0 auto',
+};
 
-// const content = {
-//   padding: '0 48px',
-// };
+const content = {
+  padding: '0 48px',
+};
 
-// const h1 = {
-//   color: '#333',
-//   fontSize: '24px',
-//   fontWeight: 'bold',
-//   textAlign: 'center' as const,
-//   margin: '30px 0',
-// };
+const h1 = {
+  color: '#333',
+  fontSize: '24px',
+  fontWeight: 'bold',
+  textAlign: 'center' as const,
+  margin: '30px 0',
+};
 
-// const h2 = {
-//   color: '#2563eb',
-//   fontSize: '20px',
-//   fontWeight: 'bold',
-//   margin: '20px 0 10px',
-// };
+const h2 = {
+  color: '#2563eb',
+  fontSize: '20px',
+  fontWeight: 'bold',
+  margin: '20px 0 10px',
+};
 
-// const text = {
-//   color: '#333',
-//   fontSize: '16px',
-//   lineHeight: '24px',
-//   margin: '10px 0',
-// };
+const text = {
+  color: '#333',
+  fontSize: '16px',
+  lineHeight: '24px',
+  margin: '10px 0',
+};
 
-// const orderDetails = {
-//   backgroundColor: '#f9fafb',
-//   borderRadius: '8px',
-//   padding: '20px',
-//   margin: '20px 0',
-// };
+const orderDetails = {
+  backgroundColor: '#f9fafb',
+  borderRadius: '8px',
+  padding: '20px',
+  margin: '20px 0',
+};
 
-// const itemRow = {
-//   marginBottom: '8px',
-// };
+const itemRow = {
+  marginBottom: '8px',
+};
 
-// const itemName = {
-//   fontSize: '14px',
-//   color: '#333',
-// };
+const itemName = {
+  fontSize: '14px',
+  color: '#333',
+};
 
-// const itemPrice = {
-//   fontSize: '14px',
-//   fontWeight: 500,
-// };
+const itemPrice = {
+  fontSize: '14px',
+  fontWeight: 500,
+};
 
-// const hr = {
-//   borderColor: '#e5e7eb',
-//   margin: '15px 0',
-// };
+const hr = {
+  borderColor: '#e5e7eb',
+  margin: '15px 0',
+};
 
-// const totalLabel = {
-//   fontSize: '14px',
-//   color: '#6b7280',
-// };
+const totalLabel = {
+  fontSize: '14px',
+  color: '#6b7280',
+};
 
-// const totalValue = {
-//   fontSize: '14px',
-//   fontWeight: 500,
-// };
+const totalValue = {
+  fontSize: '14px',
+  fontWeight: 500,
+};
 
-// const totalRow = {
-//   marginTop: '10px',
-//   paddingTop: '10px',
-//   borderTop: '2px solid #e5e7eb',
-// };
+const totalRow = {
+  marginTop: '10px',
+  paddingTop: '10px',
+  borderTop: '2px solid #e5e7eb',
+};
 
-// const totalLabelBold = {
-//   fontSize: '16px',
-//   fontWeight: 'bold',
-// };
+const totalLabelBold = {
+  fontSize: '16px',
+  fontWeight: 'bold',
+};
 
-// const totalValueBold = {
-//   fontSize: '16px',
-//   fontWeight: 'bold',
-//   color: '#2563eb',
-// };
+const totalValueBold = {
+  fontSize: '16px',
+  fontWeight: 'bold',
+  color: '#2563eb',
+};
 
-// const footerNote = {
-//   margin: '30px 0 20px',
-// };
+const footerNote = {
+  margin: '30px 0 20px',
+};
 
-// const smallText = {
-//   fontSize: '14px',
-//   color: '#6b7280',
-//   margin: '5px 0',
-// };
+const smallText = {
+  fontSize: '14px',
+  color: '#6b7280',
+  margin: '5px 0',
+};
 
-// const link = {
-//   color: '#2563eb',
-//   textDecoration: 'none',
-// };
+const link = {
+  color: '#2563eb',
+  textDecoration: 'none',
+};
 
-// const footer = {
-//   padding: '0 48px',
-// };
+const footer = {
+  padding: '0 48px',
+};
 
-// const footerText = {
-//   fontSize: '12px',
-//   color: '#9ca3af',
-//   textAlign: 'center' as const,
-//   margin: '0',
-// };
+const footerText = {
+  fontSize: '12px',
+  color: '#9ca3af',
+  textAlign: 'center' as const,
+  margin: '0',
+};
 
 // // // lib/email/order-confirmation-html.ts
 // // export interface OrderConfirmationData {
@@ -309,83 +309,3 @@
 // // }
 
 
-// lib/email/order-confirmation.ts
-
-export interface OrderItem {
-  name: string;
-  price: number;
-  quantity: number;
-}
-
-export interface OrderConfirmationData {
-  customerName: string;
-  orderNumber: string;
-  items: OrderItem[];
-  subtotal: number;
-  shipping: number;
-  tax: number;
-  total: number;
-}
-
-export function generateOrderConfirmationHtml(data: OrderConfirmationData): string {
-  const { customerName, orderNumber, items, subtotal, shipping, tax, total } = data;
-
-  const itemsHtml = items
-    .map(
-      (item) => `
-    <tr style="border-bottom: 1px solid #eee;">
-      <td style="padding: 12px 0; font-size: 14px; color: #333;">${item.name} x ${item.quantity}</td>
-      <td align="right" style="padding: 12px 0; font-size: 14px; font-weight: bold; color: #333;">
-        $${(item.price * item.quantity).toFixed(2)}
-      </td>
-    </tr>
-  `
-    )
-    .join("");
-
-  return `
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Order Confirmation #${orderNumber}</title>
-</head>
-<body style="font-family: -apple-system, sans-serif; background-color: #f6f9fc; margin: 0; padding: 20px;">
-  <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-    <div style="padding: 40px; text-align: center; background-color: #2563eb;">
-      <h1 style="color: #ffffff; margin: 0; font-size: 24px;">Order Confirmed!</h1>
-    </div>
-    <div style="padding: 40px;">
-      <p style="font-size: 16px; color: #333;">Hello ${customerName},</p>
-      <p style="font-size: 16px; color: #555; line-height: 1.5;">
-        Your order <strong>#${orderNumber}</strong> has been received and is being prepared for shipment.
-      </p>
-      
-      <div style="margin-top: 30px;">
-        <h2 style="font-size: 18px; color: #333; border-bottom: 2px solid #f6f9fc; padding-bottom: 10px;">Order Summary</h2>
-        <table style="width: 100%; border-collapse: collapse;">
-          ${itemsHtml}
-        </table>
-      </div>
-
-      <div style="margin-top: 20px; background-color: #f9fafb; padding: 20px; border-radius: 8px;">
-        <table style="width: 100%; color: #666; font-size: 14px;">
-          <tr><td>Subtotal</td><td align="right">$${subtotal.toFixed(2)}</td></tr>
-          <tr><td>Shipping</td><td align="right">$${shipping.toFixed(2)}</td></tr>
-          <tr><td>Tax</td><td align="right">$${tax.toFixed(2)}</td></tr>
-          <tr style="font-size: 18px; font-weight: bold; color: #2563eb;">
-            <td style="padding-top: 10px;">Total</td>
-            <td align="right" style="padding-top: 10px;">$${total.toFixed(2)}</td>
-          </tr>
-        </table>
-      </div>
-
-      <p style="margin-top: 30px; font-size: 14px; color: #999; text-align: center;">
-        If you have any questions, reply to this email or contact support@yourstore.com
-      </p>
-    </div>
-  </div>
-</body>
-</html>`;
-}

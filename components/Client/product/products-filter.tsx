@@ -13,7 +13,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Search, Filter, X, DollarSign } from 'lucide-react';
-import CategoryFilter from './category-filter'; // 👈 import the dropdown
+import CategoryFilter from '../category/category-filter';
 
 export interface ProductFilterState {
   search?: string;

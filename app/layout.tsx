@@ -5,7 +5,7 @@ import { Providers } from './providers';
 import Header from '@/components/Layout/header';
 import Footer from '@/components/Layout/footer';
 import { Toaster } from "@/components/ui/toaster"
-import { CartProvider } from '@/components/cart/cart-provider';
+import { CartProvider } from '@/components/Client/cart/cart-provider';
 
 
 const inter = Inter({ subsets: ['latin'] });

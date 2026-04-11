@@ -3,35 +3,21 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 
-export default function Error({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string };
-  reset: () => void;
-}) {
+export default function Error({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
   useEffect(() => {
     console.error(error);
   }, [error]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4 text-center">
+    <div className="flex flex-col items-center justify-center min-h-screen px-4">
       <h1 className="text-6xl font-bold text-red-600">500</h1>
       <h2 className="text-2xl font-semibold mt-4">Something went wrong!</h2>
-      <p className="text-gray-600 mt-2 mb-8">
-        {error.message || 'An unexpected error occurred.'}
-      </p>
+      <p className="text-gray-600 mt-2 mb-8">{error.message || 'An unexpected error occurred.'}</p>
       <div className="flex gap-4">
-        <button
-          onClick={() => reset()}
-          className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-        >
+        <button onClick={() => reset()} className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
           Try again
         </button>
-        <Link
-          href="/"
-          className="px-6 py-3 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition"
-        >
+        <Link href="/" className="px-6 py-3 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300">
           Go Home
         </Link>
       </div>
