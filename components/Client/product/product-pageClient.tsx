@@ -1,4 +1,3 @@
-// components/pages/ProductsPageClient.tsx
 'use client';
 
 import { useState } from 'react';
