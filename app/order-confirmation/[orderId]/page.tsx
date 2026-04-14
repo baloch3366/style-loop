@@ -17,8 +17,10 @@ export default function OrderConfirmationPage() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const { toast } = useToast();
-  const orderId = params.orderId as string;
-  const sessionId = searchParams.get('session_id');
+
+  // ✅ Handle potential null params
+  const orderId = params?.orderId as string | undefined;
+  const sessionId = searchParams?.get('session_id');
 
   const [verifying, setVerifying] = useState(true);
 
@@ -35,7 +37,6 @@ export default function OrderConfirmationPage() {
     setVerifying(false);
   }, [sessionId, router, toast]);
 
-  // ✅ Use the correct query document and variables
   const { data, loading, error } = useQuery<GetOrderQuery, GetOrderQueryVariables>(
     GET_ORDER,
     {

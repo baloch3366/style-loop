@@ -18,6 +18,9 @@ import {
 
 export default function CategoryPage() {
   const params = useParams();
+   if (!params) {
+  return <div>Loading...</div>;
+   }
   const slug = params.slug as string;
 
   // ✅ Add generic to useQuery for categories

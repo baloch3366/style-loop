@@ -53,7 +53,9 @@ export default function EditProductPage() {
   const router = useRouter();
   const params = useParams();
   const { toast } = useToast();
-  
+    if (!params) {
+  return <div>Loading...</div>;
+   }
   const productId = params.id as string;
   
   const [updateProduct, { loading: updating }] = useMutation(UpdateProductDocument);

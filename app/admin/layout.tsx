@@ -6,6 +6,7 @@ import { Loader2 } from 'lucide-react';
 import AdminSidebar from '@/components/admin/admin-sidebar';
 import AdminHeader from '@/components/admin/admin-header';
 
+
 export default function AdminLayout({
   children,
 }: {

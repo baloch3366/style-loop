@@ -9,12 +9,13 @@ const nextConfig: NextConfig = {
     if (!isServer) {
       config.resolve.alias = {
         ...config.resolve.alias,
-        '@react-email/components': false,
+        'next/document': false,  // prevents any import of 'next/document' on the client
       };
-      config.resolve.fallback = { fs: false, net: false, tls: false, child_process: false, dns: false };
     }
     return config;
   },
+
+    
 };
 
 export default nextConfig;

@@ -7,7 +7,7 @@ import Footer from '@/components/Layout/footer';
 import { Toaster } from "@/components/ui/toaster"
 import { CartProvider } from '@/components/Client/cart/cart-provider';
 
-
+export const dynamic = 'force-dynamic';  
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -47,3 +47,4 @@ export default function RootLayout({
     </html>
   );
 }
+

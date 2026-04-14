@@ -20,6 +20,9 @@ export default function DeleteProductPage() {
   const params = useParams();
   const { toast } = useToast();
   
+  if (!params) {
+  return <div>Loading...</div>;
+   }
   const productId = params.id as string;
   
   const [deleteProduct, { loading: deleting, error: deleteError }] = useMutation(DeleteProductDocument);

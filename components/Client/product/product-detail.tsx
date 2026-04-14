@@ -29,6 +29,9 @@ export default function ProductDetailClient() {
   const params = useParams();
   const router = useRouter();
   const { toast } = useToast();
+    if (!params) {
+  return <div>Loading...</div>;
+   }
   const productId = params.id as string;
   const [isAdding, setIsAdding] = useState(false);
   const { addItem, isInCart, getItemQuantity } = useCartStore();

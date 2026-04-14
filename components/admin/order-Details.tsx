@@ -1,4 +1,3 @@
-// components/orders/OrderDetailClient.tsx
 'use client';
 
 import { useParams } from 'next/navigation';
@@ -13,6 +12,16 @@ import type { GetOrderQuery } from '@/lib/graphql/generated/graphql';
 
 export default function OrderDetailClient() {
   const params = useParams();
+
+  // ✅ Add null check for params
+  if (!params) {
+    return (
+      <div className="flex h-96 items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin" />
+      </div>
+    );
+  }
+
   const orderId = params.id as string;
 
   const { data, loading, error } = useQuery<GetOrderQuery>(GET_ORDER, {

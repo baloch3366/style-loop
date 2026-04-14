@@ -21,7 +21,6 @@
     "paths": {
       "@/*": ["./*"]
     },
-    // Add these two lines:
     "types": ["node"],
     "typeRoots": ["./node_modules/@types", "./types"]
   },
@@ -32,7 +31,7 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts",
-    "types/**/*.d.ts"  // Add this line
+    "types/**/*.d.ts" 
   ],
   "exclude": ["node_modules"]
 }

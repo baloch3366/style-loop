@@ -34,11 +34,13 @@ type FormValues = z.infer<typeof formSchema>;
 export default function ResetPasswordPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const token = searchParams.get('token');
   const { toast } = useToast();
   const [showPassword, setShowPassword] = useState(false);
   const [resetPassword, { loading }] = useMutation(RESET_PASSWORD);
   const [success, setSuccess] = useState(false);
+
+  // ✅ Handle null searchParams
+  const token = searchParams?.get('token') ?? null;
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
